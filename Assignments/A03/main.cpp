@@ -69,7 +69,8 @@
                     return CurrentSize == QueSize;
                 }
 
-            // in the public section of this class we declare all of our functions that we use in the future to run our program. 
+            // in the public section of this class we declare all of our functions 
+            // that we use in the future to run our program. 
 
             public:
                 /**
