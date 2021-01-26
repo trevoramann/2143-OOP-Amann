@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                   
 // Author:           Trevor Amann
-// Email:            (your email address)
+// Email:            trevor.amann9@gmail.com
 // Label:            (program's label from assignment list)
 // Title:            (short title from assignment, if any)
 // Course:           (course number and prefix)
