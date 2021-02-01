@@ -2,7 +2,7 @@
             //                   
             // Author:           Trevor Amann
             // Email:            trevor.amann9@gmail.com
-            // Label:            A03
+            // Label:            A06
             // Title:            SFML
             // Course:           CMPS 2143
             // Semester:         Spring 2021
