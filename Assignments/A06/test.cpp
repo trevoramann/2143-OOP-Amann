@@ -1,3 +1,23 @@
+            ///////////////////////////////////////////////////////////////////////////////
+            //                   
+            // Author:           Trevor Amann
+            // Email:            trevor.amann9@gmail.com
+            // Label:            A03
+            // Title:            SFML
+            // Course:           CMPS 2143
+            // Semester:         Spring 2021
+            //
+            // Description:
+            //    The program opens a sfml window and presents a green dot. 
+            //
+            // Usage:
+            //      You just have to run the program. 
+            //
+            // Files:   test.cpp
+            /////////////////////////////////////////////////////////////////////////////////
+
+
+
 #include <SFML/Graphics.hpp>
 
 int main()
