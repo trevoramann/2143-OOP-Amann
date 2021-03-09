@@ -1,118 +1,122 @@
-            ///////////////////////////////////////////////////////////////////////////////
-            //                   
-            // Author:           Trevor Amann
-            // Email:            trevor.amann9@gmail.com
-            // Label:            P01
-            // Title:            Game
-            // Course:           CMPS 2143
-            // Semester:         Spring 2021
-            //
-            // Description:
-            //    The program is the start of our game. It is not fully functional yet but I do believe
-            // I have made some good progress that I can move forward with.  
-            //
-            // Usage:
-            //       Run the sfml-game after making the program and then use the up and down arrow keys to play. 
-            //
-            // Files:   main.cpp
-            /////////////////////////////////////////////////////////////////////////////////
+                    ///////////////////////////////////////////////////////////////////////////////
+                    //                   
+                    // Author:           Trevor Amann
+                    // Email:            trevor.amann9@gmail.com
+                    // Label:            P01
+                    // Title:            Game
+                    // Course:           CMPS 2143
+                    // Semester:         Spring 2021
+                    //
+                    // Description:
+                    //    The program is the start of our game. It is not fully functional 
+                    //    yet but I do believe
+                    //    I have made some good progress that I can move forward with.  
+                    //
+                    // Usage:
+                    //       Run the sfml-game after making the program and then use 
+                    //       the up and down arrow keys to play. 
+                    //
+                    // Files:   main.cpp
+                    /////////////////////////////////////////////////////////////////////////////////
 
 
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+            #include <SFML/Graphics.hpp>
+            #include <iostream>
 
-//this part of my code is a bunch of definitions that make it easier to change variable values across 
-//the whoel program. 
-#define WINDOW_X 800
-#define WINDOW_Y 600
-#define OFFSET 0.5
-#define DEBRIS_WIDTH_MIN 30
-#define DEBRIS_WIDTH_MAX 60
-#define DEBRIS_WIDTH_DELTA (DEBRIS_WIDTH_MAX - DEBRIS_WIDTH_MIN)
-#define DEBRIS_HEIGHT_MIN 50
-#define DEBRIS_HEIGHT_MAX 80
-#define DEBRIS_HEIGHT_DELTA (DEBRIS_HEIGHT_MAX - DEBRIS_HEIGHT_MIN)
-#define RADIUS 20 
-#define STARTING_OFFSET 10
-#define DEBRIS_OFFSET 0.05
+            //this part of my code is a bunch of definitions that 
+            //make it easier to change variable values across 
+            //the whoel program. 
+            #define WINDOW_X 800
+            #define WINDOW_Y 600
+            #define OFFSET 0.5
+            #define DEBRIS_WIDTH_MIN 30
+            #define DEBRIS_WIDTH_MAX 60
+            #define DEBRIS_WIDTH_DELTA (DEBRIS_WIDTH_MAX - DEBRIS_WIDTH_MIN)
+            #define DEBRIS_HEIGHT_MIN 50
+            #define DEBRIS_HEIGHT_MAX 80
+            #define DEBRIS_HEIGHT_DELTA (DEBRIS_HEIGHT_MAX - DEBRIS_HEIGHT_MIN)
+            #define RADIUS 20 
+            #define STARTING_OFFSET 10
+            #define DEBRIS_OFFSET 0.05
 
-//This is my player class that defines how the player will act. 
-class Player: public sf::CircleShape {
-    public:
-        
-        Player(){
-            setRadius(RADIUS);
-            setFillColor(sf::Color::Green);
-            setPosition(0, WINDOW_Y/2.0);
-        }
-        Player(float r, const sf::Color &c, int x, int y){
-            setRadius(r);
-            setFillColor(c);
-            setPosition(x,y);
-        }
-        void moveUp(){
-            if(getPosition().y > 0){
-                move(0.0, -OFFSET); 
-            }
-            
-        }
-        void moveDown(){
-           if(getPosition().y < (WINDOW_Y - (int) 2*getRadius())){
-               move(0.0, OFFSET);
-           }
-            
-        }
+            //This is my player class that defines how the player will act. 
+            class Player: public sf::CircleShape {
+            public:
+                
+                Player(){
+                    setRadius(RADIUS);
+                    setFillColor(sf::Color::Green);
+                    setPosition(0, WINDOW_Y/2.0);
+                }
+                Player(float r, const sf::Color &c, int x, int y){
+                    setRadius(r);
+                    setFillColor(c);
+                    setPosition(x,y);
+                }
+                void moveUp(){
+                    if(getPosition().y > 0){
+                        move(0.0, -OFFSET); 
+                    }
+                    
+                }
+                void moveDown(){
+                    if(getPosition().y < (WINDOW_Y - (int) 2*getRadius())){
+                        move(0.0, OFFSET);
+                    }
+                    
+                }
 
-        sf::FloatRect getBounds(){
-            return this->getGlobalBounds();
-        }
-};
+                sf::FloatRect getBounds(){
+                    return this->getGlobalBounds();
+                }
+            };
 
-//this is my Debris class which defines how the debris acts and looks in the game. 
-class Debris: public sf::RectangleShape {
-    private:
-        int width;
-        int height;
-        bool visible;
+            //this is my Debris class which defines how 
+            //the debris acts and looks in the game. 
+            class Debris: public sf::RectangleShape {
+            private:
+                int width;
+                int height;
+                bool visible;
 
-    public:
-        
-        Debris(){
-            width = rand() % DEBRIS_WIDTH_DELTA + DEBRIS_WIDTH_MIN;
-            height = rand() % DEBRIS_HEIGHT_DELTA + DEBRIS_HEIGHT_MIN;
-            int y = rand() % WINDOW_Y;
-            visible = true;
-            setSize(sf::Vector2f(width, height)); 
-            setFillColor(sf::Color::Yellow);
-            setPosition(WINDOW_X + STARTING_OFFSET, y); 
-        }
-        Debris(int w, int h, const sf::Color &c, int x, int y){
-            setSize(sf::Vector2f(w,h));
-            setFillColor(c);
-            setPosition(x,y);
-            visible = true;
-        }
-        void moveLeft(){
-            if(getPosition().x > -width){
-                move(-DEBRIS_OFFSET, 0.0);
-            }
-            else{
-                visible = false; 
-            }
-            
-        }
+            public:
+                
+                Debris(){
+                    width = rand() % DEBRIS_WIDTH_DELTA + DEBRIS_WIDTH_MIN;
+                    height = rand() % DEBRIS_HEIGHT_DELTA + DEBRIS_HEIGHT_MIN;
+                    int y = rand() % WINDOW_Y;
+                    visible = true;
+                    setSize(sf::Vector2f(width, height)); 
+                    setFillColor(sf::Color::Yellow);
+                    setPosition(WINDOW_X + STARTING_OFFSET, y); 
+                }
+                Debris(int w, int h, const sf::Color &c, int x, int y){
+                    setSize(sf::Vector2f(w,h));
+                    setFillColor(c);
+                    setPosition(x,y);
+                    visible = true;
+                }
+                void moveLeft(){
+                    if(getPosition().x > -width){
+                        move(-DEBRIS_OFFSET, 0.0);
+                    }
+                    else{
+                        visible = false; 
+                    }
+                    
+                }
 
-        bool isVisible(){
-            return visible;
-        }
+                bool isVisible(){
+                    return visible;
+                }
 
-        sf::FloatRect getBounds(){
-            return this->getGlobalBounds();
-        }
-            
-        
-};
+                sf::FloatRect getBounds(){
+                    return this->getGlobalBounds();
+                }
+                    
+                
+            };
 
 //This is the score class that determines how the score is calculated when an event occurs. 
 class Score{
