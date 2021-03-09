@@ -118,179 +118,183 @@
                 
             };
 
-//This is the score class that determines how the score is calculated when an event occurs. 
-class Score{
-    private:
-        int score;
-        
-    public:
-        Score(){
-            score = 0;
-        }
-        Score& operator++(){
-            score++;
-            return *this;
-        }
-        Score operator++(int x){
-            Score temp = *this;
-            ++*this;
-            return temp;
-        }
-        Score& operator--(){
-            score--;
-            return *this;
-        }
-        Score operator--(int x){
-            Score temp = *this;
-            --*this;
-            return temp;
-        }
-        int getScore(){
-            return score;
-        }
-        friend std::ostream& operator<<(std::ostream& os, const Score &s);
+    //This is the score class that determines how the score 
+    //is calculated when an event occurs. 
+    class Score{
+        private:
+            int score;
 
-};
+        public:
+            Score(){
+                score = 0;
+            }
+            Score& operator++(){
+                score++;
+                return *this;
+            }
+            Score operator++(int x){
+                Score temp = *this;
+                ++*this;
+                return temp;
+            }
+            Score& operator--(){
+                score--;
+                return *this;
+            }
+            Score operator--(int x){
+                Score temp = *this;
+                --*this;
+                return temp;
+            }
+            int getScore(){
+                return score;
+            }
+            friend std::ostream& operator<<(std::ostream& os, const Score &s);
 
-std::ostream& operator<<(std::ostream& os, const Score &s){
-    return os << s.score;
-}
+    };
 
-//This is my game text class that I still have work to finish but am struggling to get the text to appear. 
-class GameText: public sf::Text{
-    private:
-    
-    public:
-    GameText(){
-        sf::Font font;
-        font.loadFromFile("Keyboard.ttf");
-        setString("");
-        setFont(font);
-        setFillColor(sf::Color::Red);
-        setPosition(0,0);
-    }
-    GameText(const sf::String &string) {
-        sf::Font font;
-        font.loadFromFile("Keyboard.ttf");
-        setString(string);
-        setFont(font);
-        setFillColor(sf::Color::Red);
-        setPosition(0,0);
-    }
-    void setText(const sf::String &string){
-        setString(string);
+    std::ostream& operator<<(std::ostream& os, const Score &s){
+        return os << s.score;
     }
 
+    //This is my game text class that I still have work to finish 
+    //but am struggling to get the text to appear. 
+    class GameText: public sf::Text{
+        private:
 
-};
+        public:
+        GameText(){
+            sf::Font font;
+            font.loadFromFile("Keyboard.ttf");
+            setString("");
+            setFont(font);
+            setFillColor(sf::Color::Red);
+            setPosition(0,0);
+        }
+        GameText(const sf::String &string) {
+            sf::Font font;
+            font.loadFromFile("Keyboard.ttf");
+            setString(string);
+            setFont(font);
+            setFillColor(sf::Color::Red);
+            setPosition(0,0);
+        }
+        void setText(const sf::String &string){
+            setString(string);
+        }
 
-//I used the intersection logic from the follwoing website.
-//https://github.com/SFML/SFML/blob/master/include/SFML/Graphics/Rect.inl
-bool collisionDetected(sf::FloatRect obj1, sf::FloatRect obj2){
-    bool collision = false;
-    float obj1left = obj1.left;
-    float obj1top = obj1.top;
-    float obj1bottom = obj1.top - obj1.height;
-    float obj1right = obj1.left - obj1.width;
-    float obj1minx = std::min(obj1left, obj1right);
-    float obj1maxx = std::max(obj1left, obj1right);
-    float obj1miny = std::min(obj1top, obj1bottom);
-    float obj1maxy = std::max(obj1top, obj1bottom);
 
-    float obj2left = obj2.left;
-    float obj2top = obj2.top;
-    float obj2bottom = obj2.top - obj2.height;
-    float obj2right = obj2.left - obj2.width;
-    float obj2minx = std::min(obj2left, obj2right);
-    float obj2maxx = std::max(obj2left, obj2right);
-    float obj2miny = std::min(obj2top, obj2bottom);
-    float obj2maxy = std::max(obj2top, obj2bottom);
+    };
 
-    float interleft = std::max(obj1minx, obj2minx);
-    float intertop = std::max(obj1miny, obj2miny);
-    float interright = std::min(obj1maxx, obj2maxx);
-    float interbottom = std::min(obj1maxy, obj2maxy);
+    //I used the intersection logic from the follwoing website.
+    //https://github.com/SFML/SFML/blob/master/include/SFML/Graphics/Rect.inl
+    bool collisionDetected(sf::FloatRect obj1, sf::FloatRect obj2){
+        bool collision = false;
+        float obj1left = obj1.left;
+        float obj1top = obj1.top;
+        float obj1bottom = obj1.top - obj1.height;
+        float obj1right = obj1.left - obj1.width;
+        float obj1minx = std::min(obj1left, obj1right);
+        float obj1maxx = std::max(obj1left, obj1right);
+        float obj1miny = std::min(obj1top, obj1bottom);
+        float obj1maxy = std::max(obj1top, obj1bottom);
 
-    std::cout << intertop << "," << interbottom << "," << interleft << "," << interright << std::endl;
+        float obj2left = obj2.left;
+        float obj2top = obj2.top;
+        float obj2bottom = obj2.top - obj2.height;
+        float obj2right = obj2.left - obj2.width;
+        float obj2minx = std::min(obj2left, obj2right);
+        float obj2maxx = std::max(obj2left, obj2right);
+        float obj2miny = std::min(obj2top, obj2bottom);
+        float obj2maxy = std::max(obj2top, obj2bottom);
 
-    //if ((diff_top < obj1.height || diff_bot < obj1.height) && (diff_left < obj1.width || diff_right < obj1.width)) {
-    //    collision = true;
-    //}
-    
-    //if(obj1right > obj2left && obj1left < obj2right){
-    //    if(obj1top < obj2bottom && obj1bottom > obj2top){
-    //        collision = true;
-    //    }
-    //}
+        float interleft = std::max(obj1minx, obj2minx);
+        float intertop = std::max(obj1miny, obj2miny);
+        float interright = std::min(obj1maxx, obj2maxx);
+        float interbottom = std::min(obj1maxy, obj2maxy);
 
-    if((interleft < interright) && (intertop < interbottom)){
-        collision = true;
+        std::cout << intertop << "," << interbottom << "," << interleft << "," << interright << std::endl;
+
+        //if ((diff_top < obj1.height || diff_bot < obj1.height) && (diff_left < obj1.width || diff_right < obj1.width)) {
+        //    collision = true;
+        //}
+
+        //if(obj1right > obj2left && obj1left < obj2right){
+        //    if(obj1top < obj2bottom && obj1bottom > obj2top){
+        //        collision = true;
+        //    }
+        //}
+
+        if((interleft < interright) && (intertop < interbottom)){
+            collision = true;
+        }
+
+        return collision;
     }
 
-    return collision;
-}
-
-//This is the main of our function which opens the sfml window and displays a player and debris. 
-//I am currently working on how to get the text to work properly. Also in main we implement our
-//code and define what the events are so we can make sure we call our classes and functions. 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "Ball Game!");
-    Player player1;
-    Debris *debris1 = NULL; 
-    bool collision = false;
-    Score score1; 
-    GameText gmetxt;
-
-    while (window.isOpen())
+    //This is the main of our function which opens the sfml window and 
+    //displays a player and debris. 
+    //I am currently working on how to get the text to work properly. 
+    //Also in main we implement our
+    //code and define what the events are so we can make sure we call our classes and functions. 
+    int main()
     {
+        sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "Ball Game!");
+        Player player1;
+        Debris *debris1 = NULL; 
+        bool collision = false;
+        Score score1; 
+        GameText gmetxt;
 
-        sf::Event event;
-        while (window.pollEvent(event))
+        while (window.isOpen())
         {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            player1.moveUp();
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-            player1.moveDown();
-        }
-        if(debris1 == NULL){
-            debris1 = new Debris();
-            collision = false; 
-        }
-        else{
-            if(debris1->isVisible()){
-                debris1->moveLeft(); 
-                if(collisionDetected(player1.getBounds(),debris1->getBounds()) == true){
-                    if(collision == false){ //this makes sure you only count the collision once
-                        score1--;
-                        collision = true;
-                    }
-                }
+
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+                player1.moveUp();
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+                player1.moveDown();
+            }
+            if(debris1 == NULL){
+                debris1 = new Debris();
+                collision = false; 
             }
             else{
-                delete debris1; 
-                if(collision == false){
-                    score1++;
+                if(debris1->isVisible()){
+                    debris1->moveLeft(); 
+                    if(collisionDetected(player1.getBounds(),debris1->getBounds()) == true){
+                        if(collision == false){ //this makes sure you only count the collision once
+                            score1--;
+                            collision = true;
+                        }
+                    }
                 }
-                 
-                debris1 = NULL;
+                else{
+                    delete debris1; 
+                    if(collision == false){
+                        score1++;
+                    }
+
+                    debris1 = NULL;
+                }
             }
+            //gmetxt.setString(std::to_string(score1.getScore()));
+            window.clear();
+            window.draw(player1);
+            //window.draw(gmetxt);
+            if(debris1 != NULL)
+                window.draw(*debris1);
+            window.display();
+            std::cout << score1 << std::endl; 
+
         }
-        //gmetxt.setString(std::to_string(score1.getScore()));
-        window.clear();
-        window.draw(player1);
-        //window.draw(gmetxt);
-        if(debris1 != NULL)
-            window.draw(*debris1);
-        window.display();
-        std::cout << score1 << std::endl; 
 
+
+        return 0;
     }
-
-
-    return 0;
-}
