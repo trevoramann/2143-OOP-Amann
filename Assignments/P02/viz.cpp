@@ -2,8 +2,8 @@
                     //                   
                     // Author:           Trevor Amann
                     // Email:            trevor.amann9@gmail.com
-                    // Label:            P01
-                    // Title:            Game
+                    // Label:            P02
+                    // Title:            Graphviz Class 
                     // Course:           CMPS 2143
                     // Semester:         Spring 2021
                     //
