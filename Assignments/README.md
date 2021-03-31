@@ -7,3 +7,5 @@
 |   3   | [A05](./A05) | Basic OOP Terminology |
 |   4   | [A06](./A06) | SFML Install - Graphics library for cool programs. |
 |   5.  | [A07](./A07) | Designing your Game |
+|   6.  | [P01](./P01) | Game: Game |
+|   7.  | [P02](./P02) | Graphviz Class |
