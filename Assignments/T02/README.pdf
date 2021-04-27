@@ -1,0 +1,80 @@
+Trevor Amann
+
+Take Home Exam Answers
+1.	
+a)	Explain the difference between a struct and a class. Can we do whatever the other does? 
+No, we cannot do whatever the other 1does. The reason for this is because the struct cannot handle inheritance and polymorphism like the class can. However, the class has to be declared public and private where the stack is always private. 
+
+b)	What is the difference between a class and an object?
+The difference between a class and an object is the class is what defines the object while the object is a particular instance of the class. The object is a representation of the class. The class is what creates the object. 
+
+c)	What is the difference between inheritance and composition? Which one should you lean towards when designing your solution to a problem? 
+Inheritance is where a particular class or object takes things from another object or class. Composition is a form of combining objects or classes together to create better ones. I would lean towards inheritance because it is much simpler than having to combine two things together for me. 
+
+d)	What is the difference between a deep vs. shallow copy? What can you do to make one or the other happen?
+A deep copy is a copy of an object in which it is done recursively but the shallow copy just copies and inserts references from the original copy. A deep copy will store the values of the original object while the shallow copy reflects the changes made to the new one in the original object. 
+
+e)	What is the difference between a constructor and a destructor? Are they both mandatory or even necessary? 
+A constructor is what we use to initialize the data members of a class. A destructor clears the memory for those data members. We do not always need a destructor; however, it can be very useful sometimes. We typically always use a constructor so we can initialize the data members. 
+
+f)	What is static vs. dynamic typing? Which does C++ employ and which does Python employ? 
+Static typing is when the type checking is occurring at compile time. Dynamic typing is when the type checking occurs during the runtime. C++ uses static typing and Python uses dynamic typing. 
+
+
+g)	What is encapsulation vs. abstraction? Please give some examples. 
+Encapsulation is when basically when we create a class. We combine the functions as well as data members into a single unit so we can control the access to them. Abstraction is when we hide the details from a user but show them just what they need to see. We can also use a class to do this, just in a different way than encapsulation.
+
+h)	What is the difference between an abstract class and an interface? 
+The difference between an abstract class and an interface is that an abstract class gives us the ability to use subclasses so that we can implement different things. An interface only provides us with functionality, but we are unable to implement it. 
+
+i)	What is the difference between a virtual function and a pure virtual function? 
+A virtual function can be redefined be a current class where a pure vitual function is only declared in its base class. 
+
+j)	What is the difference between Function overloading and Function Overriding? 
+Function Overriding is when we create a subclass that is exactly the same as the main class. Function Overloading is when we have many different functions with the same name and parameters yet have them doing different things. 
+
+2.	 
+-	Polymorphism: When we use a single symbol to represent multiple different types of data. 
+-	Encapsulation: Bundling data together with methods than perform actions on that data. 
+-	Abstraction: Hiding the details from the from a user but show them just what they need to see. 
+
+3.	 
+-	What is a default constructor?
+o	A default constructor is the constructor we use to initialize the attributes of our object created by the class. 
+-	What is an overloaded constructor? And is there limit to the number of overloaded constructors you can have? 
+o	An overloaded constructor is when we use the same name as the default constructor but pass the overloaded ones parameters to also initialize attributes of the object. There is not a limit to the number of overloaded constructors you can have, it just depends on what you are trying to do. 
+-	What is a copy constructor? Do you need to create a copy constructor for every class you define? 
+o	A copy constructor is a constructor with same name and parameters as another constructor but initializes an object the same as the another previously created. 
+
+
+-	What is a deep copy and when do you need to worry about it?
+o	A dep copy is a copy of an object that has been created recursively. The deep copy stores the values of the object that it was copied from. You should use a deep copy when you want to keep the object and all of its values. 
+-	Is there a relationship between copy constructors and deep copying? 
+o	Yes, there is a relationship between copy constructors and deep copying because a copy constructor is basically performing a deep copy on an object. 
+-	Is a copy constructor the same as overloading the assignment operator? 
+o	Yes because you are essentially creating a copy of the assignment operator function and then telling it what to do. 
+-	Give one or more reason(s) why a class would need a destructor.
+o	 One reason would be to deallocate memory. 
+ 
+4.	What is the difference between an abstract class and an interface? 
+-	The difference between an abstract class and an interface is that one uses virtual functions and the other uses pure virtual functions. An abstract class will have at least one pure virtual class.  This means that the pure virtual class has at least one function that is only in that class and is not in any other class. This allows us to access the implementation part of this abstract class. The interface however, uses only virtual functions meaning we can only get to the functionality and do not have access to the implementation. 
+
+5.	Describe the following (make sure you compare and contrast as well):
+-	Public: a public function or variable is a variable or function that can be changed by and seen by the user or other subclasses and functions. 
+-	Private: A private variable is a variable that can only be accessed by data members of the class with the private variable. 
+-	Protected: This is when we have to use a getter or a setter to access the variables unless we are within the class with the protected variables. 
+-	Compare/Contrast:
+o	Public functions are beneficial because they are easy to access and help out, however they can be accessed from anywhere so they can be changed. Private variables are good because they cannot be changed. 
+
+6.	What is the diamond problem? 
+-	This problem is meant to show inheritance. The Super Class is the main class and the classes A and B inherit their implementation from the Super Class. This is also shown when class C inherits from classes A and B. This can be a problem when you change the Super Class because then everything below may not work properly. 
+
+7.	Discuss Early and Late Binding. 
+-	Early binding occurs during compile-time polymorphism. This means that while compiling the compiler tells the computer to jump to the function and use that call. This is an example of static typing. This occurs in an interface.
+-	Late binding occurs within run time polymorphism and thus means that the compiler tells the computer to run a function during the runtime of the program. This is done via a virtual function. 
+
+12. What is the rule of three?  In the OOP world, what does it mean?  
+-  The rule of three is when we explicitly define a destructor, copy constructor, and a copy assignment operator whenever our class declares these three functions. We must have explicit functions in OOP when we use a destructor, copy constructor and copy assignment operator. We must use all three when using them as well. 
+
+13. What are the limitations of OOP?
+- The limitations of OOP are that we end up writing long code that can get clumpy. We also end up putting a lot of work into the programs and sometimes the programs run slower than the other ways of writing the programs. 
