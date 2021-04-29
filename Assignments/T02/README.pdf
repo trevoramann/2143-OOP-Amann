@@ -3,7 +3,7 @@ Trevor Amann
 Take Home Exam Answers
 1.	
 a)	Explain the difference between a struct and a class. Can we do whatever the other does? 
-No, we cannot do whatever the other 1does. The reason for this is because the struct cannot handle inheritance and polymorphism like the class can. However, the class has to be declared public and private where the stack is always private. 
+No, we cannot do whatever the other one does. The reason for this is because the struct cannot handle inheritance and polymorphism like the class can. However, the class has to be declared public and private where the stack is always private. 
 
 b)	What is the difference between a class and an object?
 The difference between a class and an object is the class is what defines the object while the object is a particular instance of the class. The object is a representation of the class. The class is what creates the object. 
@@ -48,7 +48,7 @@ o	A copy constructor is a constructor with same name and parameters as another c
 
 
 -	What is a deep copy and when do you need to worry about it?
-o	A dep copy is a copy of an object that has been created recursively. The deep copy stores the values of the object that it was copied from. You should use a deep copy when you want to keep the object and all of its values. 
+o	A deep copy is a copy of an object that has been created recursively. The deep copy stores the values of the object that it was copied from. You should use a deep copy when you want to keep the object and all of its values. 
 -	Is there a relationship between copy constructors and deep copying? 
 o	Yes, there is a relationship between copy constructors and deep copying because a copy constructor is basically performing a deep copy on an object. 
 -	Is a copy constructor the same as overloading the assignment operator? 
@@ -78,3 +78,21 @@ o	Public functions are beneficial because they are easy to access and help out, 
 
 13. What are the limitations of OOP?
 - The limitations of OOP are that we end up writing long code that can get clumpy. We also end up putting a lot of work into the programs and sometimes the programs run slower than the other ways of writing the programs. 
+
+
+
+Bibliography:
+- https://learnappmaking.com/struct-vs-class-swift-how-to/
+- https://www.infoworld.com/article/3409071/java-challenger-7-debugging-java-inheritance.html
+- https://docs.python.org/3/library/copy.html
+- https://docs.oracle.com/cd/E57471_01/bigData.100/extensions_bdd/src/cext_transform_typing.html
+- https://eng.libretexts.org/Courses/Delta_College/C_-_Data_Structures/06%3A_Abstraction_Encapsulation/1.01%3A_Difference_between_Abstraction_and_Encapsulation
+- https://www.tutorialspoint.com/cplusplus/cpp_interfaces.htm
+- https://www.geeksforgeeks.org/difference-between-virtual-function-and-pure-virtual-function-in-c/
+- https://www.tutorialspoint.com/functional_programming/functional_programming_function_overriding.htm
+- https://stackoverflow.com/questions/10580/what-is-the-difference-between-early-and-late-binding
+- https://www.cs.utexas.edu/~scottm/cs307/handouts/deepCopying.htm
+- https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)
+- https://www.researchgate.net/post/what_are_the_advantages_and_disadvantages_of_object_oriented_programming
+
+
